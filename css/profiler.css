@@ -52,6 +52,7 @@ body {
 	left: 0px;
 	opacity: 0;
 	z-index: 101;
+	display: none;
 }
 
 #detail #detailcon {
@@ -170,3 +171,20 @@ body {
 #nextbtn a { left: 445px;  }
 #nextbtn:hover, #prevbtn:hover { color: #000; cursor: pointer }
 
+/*Marc's CSS additions*/
+
+.Title {
+	font:bold 20px Arial; 
+	margin: 10px 0 5px 0; 
+	padding-top: 5px
+}
+
+.Intro_Text {
+	font: 13px Arial; 
+	margin-bottom: 10px;
+}
+
+#wrapper {
+	width: 40%;
+	margin: 0 auto;
+}
