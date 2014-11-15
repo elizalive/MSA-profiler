@@ -54,7 +54,9 @@ function showDetail(which) {
 	$("#detail #data2").html("<p>Service Branch: " + allData[which][0].data2 + "</p>");
 	$("#detail #data3").html("<p>Conviction: " + allData[which][0].data3 + "</p>");
 	$("#detail #blurb").html(allData[which][0].blurb);
-	
+	$("#detail #excerpt").html(allData[which][0].excerpt);
+
+
 	//LOAD AND DISPLAY PHOTO
 	var img = new Image();
 	img.src = "imgs/" + allData[which][0].photourl;
@@ -105,6 +107,7 @@ function populateGrid() {
 								data3: ds.column("data3").data[j],
 								blurb: ds.column("blurb").data[j],
 								photourl: ds.column("image").data[j],
+								excerpt: ds.column("excerpt").data[j],
 						    }];
 	}
 	

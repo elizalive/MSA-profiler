@@ -7,9 +7,10 @@
 	<link rel="stylesheet"  href="css/reset.css" />
 	<link rel="stylesheet"  href="css/profiler.css" />
 	
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script type="text/javascript" src="js/miso.ds.deps.min.0.4.1.js"></script>
 	<script type="text/javascript" src="js/profiler.js"></script>
+	<script type="text/javascript" src="//s3.amazonaws.com/s3.documentcloud.org/notes/loader.js"></script>
 
 </head>
 <body>
@@ -18,9 +19,10 @@
 		
 		<div class="Title">Under the Radar</div>
 
-			<div class="Intro_Text">
+			<div class="Intro_Text" style="border-bottom: 1px solid #e2e2e2; padding: 5px 0 5px 0;">
     			<p>Military courts have convicted hundreds of service members of sex crimes, but Scripps News found more than 250 of these sex offenders don't show up on public facing sex offender websites.</p><br>
-    			<p>These are some of the cases Scripps News uncovered.</p>
+    			<p>These are some of the most harrowing cases Scripps News uncovered. Click on an icon to learn more about a case.</p>
+    			</br>
     		</div>
 
 		<div id="container">
@@ -37,19 +39,33 @@
 					</div>
 					<div style="clear:both"></div>
 					<div id="blurb"></div>
+					<div id="excerpt"></div>
 					<div id="nextbtn"><a href="javascript:nextPerson()">»</a></div>
 				</div>
 			
 		</div>
-		
-		
 	</div>
 
 	<div style="clear:both"></div>
-	<div class="credits" style="font: italic 11px Arial; color: #999; margin: 20px 0 10px 0; border-top: 1px solid #e2e2e2; padding: 5px 0 5px 0; ">Credits: Elizabeth Scheltens, Marc Georges, Brittany Morris, Eric Krupke, template by Nelson Hsu</div>
-	
 
-             
+			<div id="DC-search-projectid-16601-military-sexual-assault-cases" class="DC-search-container"></div>
+			<script src="//s3.amazonaws.com/s3.documentcloud.org/embed/loader.js"></script>
+			<script>
+			  dc.embed.load('http://www.documentcloud.org/search/embed/', {
+			    q: "projectid: 16601-military-sexual-assault-cases ",
+			    container: "#DC-search-projectid-16601-military-sexual-assault-cases",
+			    title: "",
+			    order: "title",
+			    per_page: 20,
+			    search_bar: true,
+			    organization: 1172
+			  });
+			</script>
+
+		<div class="credits" style="font: italic 11px Arial; color: #999; margin: 20px 0 10px 0; border-top: 1px solid #e2e2e2; padding: 5px 0 5px 0; ">
+			<p>Credits: Elizabeth Scheltens, Marc Georges, Brittany Morris, Eric Krupke, template by Nelson Hsu</p>
+		</div>
+	         
 
 </body>
 </html>    
