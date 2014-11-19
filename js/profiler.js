@@ -53,6 +53,7 @@ function showDetail(which) {
 	$("#detail #data1").html("<p>Rank: " + allData[which][0].data1 + "</p>");
 	$("#detail #data2").html("<p>Service Branch: " + allData[which][0].data2 + "</p>");
 	$("#detail #data3").html("<p>Conviction: " + allData[which][0].data3 + "</p>");
+	$("#detail #data4").html("<p>Sentence: " + allData[which][0].data4 + "</p>");
 	$("#detail #blurb").html(allData[which][0].blurb);
 	$("#detail #excerpt").html(allData[which][0].excerpt);
 
@@ -105,6 +106,7 @@ function populateGrid() {
 								data1: ds.column("data1").data[j],
 								data2: ds.column("data2").data[j],
 								data3: ds.column("data3").data[j],
+								data4: ds.column("data4").data[j],
 								blurb: ds.column("blurb").data[j],
 								photourl: ds.column("image").data[j],
 								excerpt: ds.column("excerpt").data[j],
