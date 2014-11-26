@@ -54,21 +54,45 @@ function showDetail(which) {
 	$("#detail #data2").html("<p>Service Branch: " + allData[which][0].data2 + "</p>");
 	$("#detail #data3").html("<p>Conviction: " + allData[which][0].data3 + "</p>");
 	$("#detail #data4").html("<p>Sentence: " + allData[which][0].data4 + "</p>");
-	$("#detail #blurb").html(allData[which][0].blurb);
-	$("#detail #excerpt").html(allData[which][0].excerpt);
+	$("#detail #blurb").html(allData[which][0].blurb +"</p>" + "</br>"+"<p>Click the excerpt from our case file below to see the full document:" + "</p>");
+	loadExcerpt(allData[which][0].excerpt);
 
 
 	//LOAD AND DISPLAY PHOTO
 	var img = new Image();
-	img.src = "imgs/" + allData[which][0].photourl;
+	img.src = "imgs/" + allData[which][0].popimage;
+	//img.src = "imgs/Silhouette.svg";
 	img.height = 135;
 	img.width = 115;
 	$("#detail #photocon").empty();
 	$("#detail #photocon").append(img);
 
 	checkNav();
-	
 }
+
+function loadExcerpt(excerpt){
+	var tmpExcerpt = $("<div>" + excerpt + "</div>");
+		var tmpDcContainer = tmpExcerpt.find(".DC-note-container");
+
+			if(tmpDcContainer.length > 0){
+
+			//see if the container already exists
+			var docDcContainer = $(".docs").find("#" + tmpDcContainer.attr("id"));
+			if(docDcContainer.length > 0){ //doc was already loaded
+			var docHtml = docDcContainer.clone().html();
+			$("#detail #excerpt").html(docHtml);
+			}
+			else{
+			$(".docs").append(tmpExcerpt);
+			setTimeout(function(){  //wait for the doc to load
+			$(".docs a").attr("target", "_blank");
+			var docHtml = $(".docs").find("#" + tmpDcContainer.attr("id")).clone().html();
+			$("#detail #excerpt").html(docHtml);
+			},200);
+		}
+	}
+}
+
 
 function nextPerson() {
 	current ++;
@@ -93,6 +117,7 @@ function checkNav() {
 }
 
 
+
 function populateGrid() {
 	var $len = ds.column("name").data.length;
 	totalEntries = $len;
@@ -110,6 +135,7 @@ function populateGrid() {
 								blurb: ds.column("blurb").data[j],
 								photourl: ds.column("image").data[j],
 								excerpt: ds.column("excerpt").data[j],
+								popimage: ds.column("popimage").data[j],
 						    }];
 	}
 	
@@ -136,12 +162,10 @@ function populateGrid() {
 		$("#container #" + i).append(nodehover);
 		
 		node.onclick = function() { showDetail(this.id); };	
-		
-		
-	}
-	
-	
+	}	
 }
+
+
 
 $(document).ready(function(){
 	init();
